@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Flower Class Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: 'Arimo', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login {
+      background-color: #fff;
+      border-radius: 4px;
+      padding: 20px;
+      width: 300px;
+    }
+
+    .login h1 {
+      color: #333;
+      font-family: 'Pacifico', cursive;
+      font-size: 28px;
+      margin: 0 0 20px;
+      text-align: center;
+    }
+
+    .login input[type="text"] {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 20px;
+      padding: 15px;
+      width: 100%;
+    }
+
+    .login button[type="submit"] {
+      background-color: #4CAF50;
+      border: 0;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 15px;
+      width: 100%;
+    }
+
+    .login button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .prediction {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="login">
+      <h1>CUSTOMER CHURN PREDICTION</h1>
+      <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="age" placeholder="Age" required="required" />
+        <input type="text" name="purchase" placeholder="Total Purchase" required="required" />
+        <input type="text" name="acc_man" placeholder="Account Manager" required="required" />
+        <input type="text" name="yrs" placeholder="Years" required="required" />
+        <button type="submit">Predict</button>
+      </form>
+      <div class="prediction">
+        {{ prediction_text }}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
